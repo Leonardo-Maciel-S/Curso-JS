@@ -6,5 +6,5 @@
 ## O que aprendi
 - Novas novas funções internas do Date() e desenvolvi bastante minha lógica de programação
 - E o mais importante é ler a documentação kkk pois o que eu fiz em 60 linhas o proprio Date() já tem as funções prontas e solucionou o problema em 3 linhas kkkkk
-### Print
+### Resultado
 ![Tela  data formatada](https://github.com/Leonardo-Maciel-S/Curso-JS/assets/111988047/e2f5b936-9380-4abf-812c-4745c5a7ae7f)
