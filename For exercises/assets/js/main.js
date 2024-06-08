@@ -27,4 +27,3 @@ function createContainer(elements) {
 }
 
 createContainer(elements)
-
