@@ -78,11 +78,11 @@ form button:active {
 
 /* Exercicios ------------------ */
 
-.container > div {
+/* .container > div {
     display: flex;
     gap: 150px;
     margin-bottom: 20px;
-}
+} */
 
 .container div h2 {
     font-size: 1.5rem;
@@ -105,4 +105,9 @@ form button:active {
 
 .p-invalid {
     background-color: var(--color-p-invalid);
+}
+
+.btns {
+    display: flex;
+    gap: 10px;
 }
