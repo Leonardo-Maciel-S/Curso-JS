@@ -111,3 +111,38 @@ form button:active {
     display: flex;
     gap: 10px;
 }
+
+/* Temporizador --------------------------- */
+
+.temporizador {
+    display: flex;
+    flex-flow: column;
+    justify-content: start;
+    gap: 20px;
+
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.temporizador input {
+    all: unset;
+    max-width: 35px;
+    border: 1px solid black;
+    margin: 0;
+}
+
+.temporizador button, .btns button  {
+    all: unset;
+    font-size: 20px;
+    font-weight: 500;
+    border: 1px solid gray;
+    padding: 0 5px;
+}
+
+.temporizador button:hover, .btns button:hover {
+    color: white;
+    cursor: pointer;
+    background-color: var(--color-blue);
+
+}
+

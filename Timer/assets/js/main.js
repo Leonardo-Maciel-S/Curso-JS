@@ -66,6 +66,16 @@ clear.addEventListener('click', () => {
 
 
 
+// temporizador --------------------
+
+const temporizador = document.querySelector('.temporizador')
+const playTemp = document.querySelector('.play-temporizador')
+const pauseTemp = document.querySelector('.pause-temporizador')
+const clearTemp = document.querySelector('.clear-temporizador')
+
+temporizador.addEventListener('click', (event) => {
+    
+})
 
 
 
