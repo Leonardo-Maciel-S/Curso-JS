@@ -89,6 +89,10 @@ form button:active {
     margin-bottom: 10px;
 }
 
+.timer {
+    color: rgb(100, 98, 98);
+}
+
 .container p {
     margin: 5px 0;
 }
@@ -122,14 +126,26 @@ form button:active {
 
     font-size: 1.5em;
     font-weight: 600;
+    margin: 20px 0;
+
+}
+
+.inputs-temporizador {
+    display: flex;
+    width: min-content;
 }
 
 .temporizador input {
     all: unset;
-    max-width: 35px;
-    border: 1px solid black;
     margin: 0;
+    padding: 0;
+    width: 37px;
 }
+
+input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+    }
 
 .temporizador button, .btns button  {
     all: unset;
