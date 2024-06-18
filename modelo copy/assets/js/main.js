@@ -1,23 +1,6 @@
-function Pessoa(nome, sobrenome) {
+const nomes = ['Lucas', 'Maria', 'João', 'Leonardo']
 
-    const id = 12345
-
-    
-    this.getId = () => {
-        return id
-    }
+const nomes2 = nomes.splice(-3, nomes.length)
 
 
-    this.nome = nome
-    this.sobrenome = sobrenome
-
-    
-}
-
-const p1 = new Pessoa('Leonardo', 'Maciel')
-const p2 = new Pessoa('João', 'Silva')
-
-
-
-console.log(p1.getId())
-console.log(p2.nome)
+console.log(nomes, nomes2)
