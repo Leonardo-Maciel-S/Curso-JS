@@ -36,7 +36,7 @@ function validation(){
     cpfNumbers.push(firstDig)
 
 
-    result = result = multiplicator(cpfNumbers)
+    result = multiplicator(cpfNumbers)
 
     let secondDig = getDigit(result)
 
