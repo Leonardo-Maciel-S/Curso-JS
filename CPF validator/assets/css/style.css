@@ -77,73 +77,32 @@ form button:active {
 
 
 /* Exercicios ------------------ */
-
-/* .container > div {
-    display: flex;
-    gap: 150px;
-    margin-bottom: 20px;
-} */
-
-.container div h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.timer {
-    color: rgb(100, 98, 98);
-}
-
-.container p {
-    margin: 5px 0;
-}
-
-#p-result {
-    display: none;
-    width: 100%;
-    padding: 5px;
-}
-
-.p-ok {
-    background-color: var(--color-p-ok);
-}
-
-.p-invalid {
-    background-color: var(--color-p-invalid);
-}
-
-.btns {
-    display: flex;
-    gap: 10px;
-}
-
-ul {
-    display: flex;
-    flex-direction: column;
-    padding: 0 10px;
-}
-
-li {
+.container div {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 10px
 }
 
-.okTask {
-    text-decoration: line-through;
-
+.validation {
+    padding: 10px;
+    font-size: .8em;
 }
 
-li button {
-    text-decoration: none;
-
+.validation:hover {
+    background-color: var(--color-blue);
+    color: white;
 }
 
-li::before {
-    content: '';
-	width: 5px;
-	height: 5px;
-	display: block;
-	border-radius: 50%;
-	background: black;
+.validated {
+    width: max-content;
+    padding: 5px 10px;
+    background-color: rgb(5, 189, 5);
+    font-weight: 500;
 }
 
+.invalidated {
+    width: max-content;
+    padding: 5px 10px;
+    background-color: rgb(232, 16, 16);
+
+}
