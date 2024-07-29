@@ -62,6 +62,7 @@ class Validator {
 
     isValid() {
         const cpfGenerated = this.partCPF.join('')
+        
         if (cpfGenerated.toString() === this.startCPF) return true
 
         return false
@@ -72,7 +73,7 @@ class Validator {
 
         this.partCPF.splice(3, 0, '.')
         this.partCPF.splice(7, 0, '.')
-        this.partCPF.splice(11, 0, '-')
+        this.partCPF.splice(11, 0, '-') 
 
         const cpfFull = this.partCPF.join('') 
 
@@ -87,8 +88,6 @@ class Validator {
         this.startCPF.splice(3, 0, '.')
         this.startCPF.splice(7, 0, '.')
         this.startCPF.splice(11, 0, '-')
-
-
 
         this.p.innerHTML = this.startCPF.join('') + ' é inválido'
         this.p.classList.add('invalidated')
