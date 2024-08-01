@@ -1,5 +1,11 @@
-export function getUpperChar() {
-    return (
-        String.fromCharCode(Math.floor(Math.random() * (90 - 65) + 65))
-    )
+export default class FormGerneratePassword {
+    constructor(passwordGenerated, form) {
+        this.passwordGenerated = passwordGenerated
+        this.qtdChar = form.get('qtdChar')
+        this.isUpperCase = form.get('isUpperCase')
+        this.isLowerCase = form.get('isLowerCase')
+        this.isNumber = form.get('isNumber')
+        this.isSymbol = form.get('isSymbol')
+    }
+
 }

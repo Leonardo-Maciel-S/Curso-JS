@@ -1,28 +1,33 @@
-function rand(min, max) {
-    return Math.floor(Math.random() * (max - min) + min)
+export default class Gerator {
+
+    rand(min, max) {
+        return Math.floor(Math.random() * (max - min) + min)
+    }
+
+    getUpperChar() {
+        return (
+            String.fromCharCode(this.rand(65, 90))
+        )
+    }
+
+    getLowerChar() {
+        return (
+            String.fromCharCode(this.rand(97, 122))
+        )
+    }
+
+    getNumber() {
+        return (
+            String.fromCharCode(this.rand(48, 57))
+        )
+    }
+
+    getSymbol() {
+        const symbols = '!@#$%*_+-=~.,;:/?{}[]' 
+
+        return symbols[this.rand(0, symbols.length)]
+
+    }
+
 }
 
-export function getUpperChar() {
-    return (
-        String.fromCharCode(rand(65, 90))
-    )
-}
-
-
-export function getLowerChar() {
-    return (
-        String.fromCharCode(rand(97, 122))
-    )
-}
-
-export function getNumber() {
-    return (
-        String.fromCharCode(rand(0, 9))
-    )
-}
-
-export function getSymbol() {
-    return (
-        String.fromCharCode(rand(33, 47))
-    )
-}

@@ -10,37 +10,40 @@
 <body>
 
     <section class="container">
-       <h1>Gerador de senha</h1>
-       
-       <div class="password-generated">Seleciona as opções</div>
+        <h1>Gerador de senha</h1>
+        
+        <div class="password-generated">Seleciona as opções</div>
 
-        <div class="input">
-            <label for="qtdChar">Quantidade de caracteres</label>
-            <input type="number" name="qtdChar" id="" min="1" max="50">
-        </div>
-
-         <div class="input">
-            <label for="isUpperCase">Adicionar maiúsculas ?</label>
-            <input type="checkbox" name="isUpperCase" id="" class="isUpperCase" checked>
-        </div>
-
-        <div class="input">
-            <label for="isUpperCase">Adicionar minúsculas ?</label>
-            <input type="checkbox" name="isUpperCase" id="" class="isUpperCase">
-        </div>
-
-        <div class="input">
-            <label for="isNumber">Adicionar numeros?</label>
-            <input type="checkbox" name="isNumber" id="" class="isNumber">
-        </div>
-
-        <div class="input">
-            <label for="isSymbol">Adicionar símbolos?</label>
-            <input type="checkbox" name="isSymbol" id="" class="isSymbol">
-        </div>
-
-        <button>Gerar Senha</button>
-
+       <form action="#" class="formPassword">
+    
+            <div class="input">
+                <label for="qtdChar">Quantidade de caracteres</label>
+                <input type="number" name="qtdChar" id="" min="1" max="30">
+            </div>
+    
+            <div class="input">
+                <label for="isUpperCase">Adicionar maiúsculas ?</label>
+                <input type="checkbox" name="isUpperCase" id="" class="isUpperCase" checked>
+            </div>
+    
+            <div class="input">
+                <label for="isLowerCase">Adicionar minúsculas ?</label>
+                <input type="checkbox" name="isLowerCase" id="" class="isLowerCase">
+            </div>
+    
+            <div class="input">
+                <label for="isNumber">Adicionar numeros?</label>
+                <input type="checkbox" name="isNumber" id="" class="isNumber">
+            </div>
+    
+            <div class="input">
+                <label for="isSymbol">Adicionar símbolos?</label>
+                <input type="checkbox" name="isSymbol" id="" class="isSymbol">
+            </div>
+    
+            <button class="btn-generator">Gerar Senha</button>
+ 
+       </form>
 
     </section>
 
