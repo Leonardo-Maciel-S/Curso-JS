@@ -35,7 +35,7 @@ const generatePassword = (event) => {
         }
     }
 
-    passwordGenerated.innerHTML = password.join('').slice(0, formGenerator.qtdChar)
+    passwordGenerated.innerHTML = password.join('').slice(0, formGenerator.qtdChar) || 'Quantidade não selecionada'
 
 }   
 
@@ -45,9 +45,10 @@ function gerenateDig(type){
         'isUpperCase': generator.getUpperChar(),
         'isLowerCase': generator.getLowerChar(),
         'isNumber': generator.getNumber(),
-        'isUpperCase': generator.getSymbol(),
+        'isSymbol': generator.getSymbol(),
 
     }
+
 
     return (functions[type])
 
