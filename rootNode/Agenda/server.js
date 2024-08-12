@@ -44,10 +44,9 @@ app.set('views', path.resolve(__dirname, 'src', 'views'))
 app.set('view engine', 'ejs')
 
 app.use(csrf())
+app.use(middlewareGlobal.middlewareGlobal)
 app.use(middlewareGlobal.injectCsrf)
 app.use(middlewareGlobal.checkCsrf)
-app.use(middlewareGlobal.errors)
-app.use(middlewareGlobal.success)
 app.use(routes)
 
 app.on('pronto', () => {

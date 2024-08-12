@@ -19,7 +19,8 @@ exports.loginRegister = async (req, res, next) => {
             return;
         }
     
-        req.flash('success', 'Seu usuário foi criado com sucesso')    
+        req.flash('success', 'Seu usuário foi criado com sucesso') 
+        req.session.user = login.user
         req.session.save(() => {
             return res.redirect('/login')
         })
@@ -47,14 +48,22 @@ exports.login = async (req, res) => {
             return;
         }
     
-        req.flash('success', 'Entrando...')    
         req.session.user = login.user
         req.session.save(() => {
-            return res.redirect('/login')
+            return res.redirect('/')
         })
+
+        
 
     } catch (e) {
         console.log(e)
     }
 
+}
+
+
+exports.logout = (req, res) => {
+    req.flash("success", "Deslogado com sucesso")
+    req.session.destroy()
+    res.redirect('/')
 }

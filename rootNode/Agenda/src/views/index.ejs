@@ -1,0 +1,39 @@
+<%- include('includes/head')%>
+<%- include('includes/nav')%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        
+        <div class="col-lg-8 my-3">
+            <h1 class="text-center">Agenda</h1>
+            
+            <% if(user) { %>
+                <p class="text-center lead">Seus contatos estão abaixo</p>
+
+            <% } else { %>
+                <p class="text-center lead">Faça login para ver contatos</p>   
+
+            <% } %>
+
+            <%- include('includes/messages') %>
+
+            <div class="responsive-table">
+                <% if(user) { %>
+                    <table class="table my-3">
+                        <tr>
+                            <td>Luiz</td>
+                            <td>Otavio</td>
+                            <td>teste@gmail.com</td>
+                            <td>619654564654</td>
+                        </tr>
+                    </table>
+                <% } %>
+            </div>
+        </div>
+        
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+
+<%- include('includes/footer') %>
