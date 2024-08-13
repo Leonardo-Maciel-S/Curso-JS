@@ -1,7 +1,9 @@
 const Login = require('../models/LoginModel')
 
 exports.loginPage = (req, res) => {
-    res.render('login')
+    if (req.session.user) return res.render('loginConnected')
+
+    return res.render('login')
 }
 
 exports.loginRegister = async (req, res, next) => {
@@ -49,6 +51,7 @@ exports.login = async (req, res) => {
         }
     
         req.session.user = login.user
+        req.flash('success', "Você logou no sistema.")
         req.session.save(() => {
             return res.redirect('/')
         })

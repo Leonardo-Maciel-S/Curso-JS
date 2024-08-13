@@ -17,13 +17,13 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const flash = require('connect-flash')
 
-const helmet = require('helmet')
+const helmet = require('helmet');
 const csrf = require('csurf');
 const exp = require('constants');
 
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-app.use(express.static(path.resolve(__dirname, 'public')))
+app.use(express.urlencoded({ extended: true })) // converter o body para ficar acessivel
+app.use(express.json()) // transoformar as requisições em JSON
+app.use(express.static(path.resolve(__dirname, 'public'))) // acessar a pasta public
 
 const sessionOptions = session({
     secret: "5456465adadada654654654adad",
@@ -36,14 +36,14 @@ const sessionOptions = session({
     }
 })
 
-app.use(sessionOptions)
-app.use(flash())
-app.use(helmet())
+app.use(sessionOptions);
+app.use(flash());
+app.use(helmet());
 
-app.set('views', path.resolve(__dirname, 'src', 'views'))
-app.set('view engine', 'ejs')
+app.set('views', path.resolve(__dirname, 'src', 'views')) // identificar onde fica as paginas ejs
+app.set('view engine', 'ejs'); // configurando a engine que vai renderizar os ejs
 
-app.use(csrf())
+app.use(csrf()) // adicionando o csrf no express (serve para atribuir um token aleatório em todo form)
 app.use(middlewareGlobal.middlewareGlobal)
 app.use(middlewareGlobal.injectCsrf)
 app.use(middlewareGlobal.checkCsrf)
