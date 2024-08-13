@@ -3,6 +3,7 @@ const route = express.Router()
 const homeController = require('./src/controllers/homeController')
 const loginController = require('./src/controllers/loginController')
 const contactController = require('./src/controllers/contactController')
+const middlewareGlobal = require('./src/middleware/middlewareGlobal')
 
 // Rotas da home
 route.get('/', homeController.homePage)
@@ -14,8 +15,9 @@ route.post('/login/login', loginController.login)
 route.get('/login/logout', loginController.logout)
 
 // Rotas de cadastro
-route.get('/contact', contactController.homeContact)
-route.post('/contact/newContact', contactController.newContact)
+route.get('/contact', middlewareGlobal.loginRequired, contactController.homeContact)
+route.get('/contact/:id', middlewareGlobal.loginRequired, contactController.editContact)
+route.post('/contact/register', middlewareGlobal.loginRequired, contactController.register)
 
 
 module.exports = route;
