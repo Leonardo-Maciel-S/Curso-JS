@@ -18,6 +18,7 @@ route.get('/login/logout', loginController.logout)
 route.get('/contact', middlewareGlobal.loginRequired, contactController.homeContact)
 route.get('/contact/:id', middlewareGlobal.loginRequired, contactController.editContact)
 route.post('/contact/register', middlewareGlobal.loginRequired, contactController.register)
+route.put('/contact/edit/', middlewareGlobal.loginRequired, contactController.edit)
 
 
 module.exports = route;

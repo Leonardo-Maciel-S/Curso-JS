@@ -17,7 +17,12 @@
 
             <%- include('includes/messages') %>
 
-            <form action="/contact/register" method="POST" class="d-flex flex-column gap-6">
+            <% if(!contact._id) { %>
+                <form action="/contact/register" method="POST" class="d-flex flex-column gap-6">
+            <% } else { %>
+                <form action="/contact/edit/<%=contact._id%>" method="POST" class="d-flex flex-column gap-6">
+            <% } %>
+
                 <input type="hidden" name="_csrf" value="<%=csrfToken%>">
 
                 <div class="form-group my-2">
