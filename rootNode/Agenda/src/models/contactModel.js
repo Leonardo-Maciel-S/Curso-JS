@@ -1,3 +1,4 @@
+const { concat } = require('core-js/core/array')
 const mongoose = require('mongoose')
 const validator = require('validator')
 
@@ -9,13 +10,19 @@ const contactSchema = new mongoose.Schema({
     createIn: { type: Date, default: Date.now}
 })
 
-const contactModel = new mongoose.model('contato', contactSchema)
+const contactModel = new mongoose.model('contacts', contactSchema)
 
 class Contact {
     constructor(body) {
         this.body = body
         this.errors = []
         this.contact = null
+    }
+
+    static async getAllContact() {
+        const teste = await contactModel.find()
+
+        console.log(teste)
     }
 
     static async getId(id) {
@@ -25,7 +32,24 @@ class Contact {
         return user
     }
 
+    async edit(id) {
+        if(typeof id !== 'string') return
+
+
+        this.validation()
+
+        if(this.errors.length > 0) return
+
+        console.log('aqui 2')
+        console.log(id)
+
+        this.contact = await contactModel.findOneAndUpdate( { _id: id }, this.body, { new: true })
+
+        console.log(this.contact)
+    }                            
+
     async register() {
+
         this.validation()
 
         if(this.errors.length > 0) return

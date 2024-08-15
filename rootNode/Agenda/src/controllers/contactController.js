@@ -20,7 +20,7 @@ exports.register = async (req, res) => {
         req.flash('success', 'Contato registrado com sucesso!')
         res.redirect(`/contact/${contact.contact._id}`)
     } catch(e) {
-        return res.render('404')
+        return res.render('404')    
     }
 
 }
@@ -36,7 +36,25 @@ exports.editContact = async (req, res, next) => {
 }
 
 exports.edit = async (req, res, next) => {
-    if (!req.params.id) return res.render('404')
+    try {
+        const contact = new Contact(req.body)
+
+        await contact.edit(req.params.id)
+
+        if (contact.errors.length > 0 ) {
+            req.flash('errors', contact.errors)
+            req.session.save(() => res.redirect('/contact'))
+            return
+        }
+
+        req.flash('success', 'Contato editado com sucesso!')
+        res.redirect(`/contact/${contact.contact._id}`)
+
+
+    } catch(e) {
+        console.log(e)
+        res.render('404')
+    }
 
     
 }

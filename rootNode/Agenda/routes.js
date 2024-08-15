@@ -6,7 +6,7 @@ const contactController = require('./src/controllers/contactController')
 const middlewareGlobal = require('./src/middleware/middlewareGlobal')
 
 // Rotas da home
-route.get('/', homeController.homePage)
+route.get('/',homeController.getContacts, homeController.homePage)
 
 // Rotas de login
 route.get('/login', loginController.loginPage)
@@ -18,7 +18,7 @@ route.get('/login/logout', loginController.logout)
 route.get('/contact', middlewareGlobal.loginRequired, contactController.homeContact)
 route.get('/contact/:id', middlewareGlobal.loginRequired, contactController.editContact)
 route.post('/contact/register', middlewareGlobal.loginRequired, contactController.register)
-route.put('/contact/edit/', middlewareGlobal.loginRequired, contactController.edit)
+route.post('/contact/edit/:id', middlewareGlobal.loginRequired, contactController.edit)
 
 
 module.exports = route;
