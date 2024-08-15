@@ -4,15 +4,19 @@ exports.homePage = (req, res) => {
     return res.render('index');
 }
 
-exports.getContacts = (req, res, next) => {
+exports.getContacts = async (req, res, next) => {
     try {
         const contact = new Contact()
 
-        contact.getAllContact()
+        const listContact = await contact.getAllContact()
+        
+        res.locals.listContact = contact.listContact
+    
     } catch(e) {
         console.log(e)
     }
 
     next()
+
 }
 

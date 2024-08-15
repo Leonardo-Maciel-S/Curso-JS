@@ -1,4 +1,4 @@
-const { concat } = require('core-js/core/array')
+const { concat } = require('core-js/actual/array')
 const mongoose = require('mongoose')
 const validator = require('validator')
 
@@ -17,12 +17,11 @@ class Contact {
         this.body = body
         this.errors = []
         this.contact = null
+        this.listContact = []
     }
 
-    static async getAllContact() {
-        const teste = await contactModel.find()
-
-        console.log(teste)
+    async getAllContact() {
+        this.listContact = await contactModel.find()
     }
 
     static async getId(id) {

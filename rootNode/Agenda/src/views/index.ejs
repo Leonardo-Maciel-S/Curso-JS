@@ -21,19 +21,28 @@
             <div class="responsive-table">
                 <% if(user) { %>
                     <table class="table my-3">
+
                         <tr>
                             <td>Nome</td>
                             <td>Sobrenome</td>
                             <td>Email</td>
                             <td>Telefone</td>
                         </tr>
-                        <tr>
-                            <td>Luiz</td>
-                            <td>Otavio</td>
-                            <td>teste@gmail.com</td>
-                            <td>619654564654</td>
-                        </tr>
+
+                        <% for(let contact of listContact) { %>
+                            <tr>
+                                <td><%=contact.name%></td>
+                                <td><%=contact.lastName%></td>
+                                <td><%=contact.email%></td>
+                                <td><%=contact.number%></td>
+                            </tr>
+                            <% } %>
+
                     </table>
+                <% } %>
+
+                <% for(let contact in listContact) { %>
+                   
                 <% } %>
             </div>
         </div>
