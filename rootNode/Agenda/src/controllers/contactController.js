@@ -28,11 +28,15 @@ exports.register = async (req, res) => {
 exports.editContact = async (req, res, next) => {
     if (!req.params.id) return res.render('404')
 
-    const contact = await Contact.getId(req.params.id)
+    try {
+        const contact = await Contact.getId(req.params.id)
 
-    if(!contact) return res.render('404')
-
-    res.render('homeContact', { contact })
+        if(!contact) return res.render('404')
+    
+        res.render('homeContact', { contact })
+    } catch(e) {
+        res.render('404')
+    }
 }
 
 exports.edit = async (req, res, next) => {
@@ -52,9 +56,26 @@ exports.edit = async (req, res, next) => {
 
 
     } catch(e) {
-        console.log(e)
         res.render('404')
     }
 
-    
+}
+
+exports.delete = async (req, res) => {
+    if (!req.params.id) return res.render('404')
+
+    try {
+        const contact = await Contact.deleteById(req.params.id)
+
+        if(!contact) return res.render('404')
+
+        req.flash('success', 'Contato exluido com sucesso')
+        req.session.save(() => {
+            res.redirect('back')
+        })    
+
+        
+    } catch(e) {
+        res.render('404')
+    }
 }

@@ -1,22 +1,14 @@
 const Contact = require('../models/contactModel')
 
-exports.homePage = (req, res) => {
-    return res.render('index');
-}
-
-exports.getContacts = async (req, res, next) => {
+exports.homePage = async (req, res) => {
     try {
-        const contact = new Contact()
-
-        const listContact = await contact.getAllContact()
-        
-        res.locals.listContact = contact.listContact
-    
-    } catch(e) {
+        const listContact = await Contact.getAllContact()
+        return res.render('index', { listContact });
+    }catch(e) {
         console.log(e)
+        res.render('404')
     }
-
-    next()
-
+    
 }
+
 

@@ -35,6 +35,12 @@
                                 <td><%=contact.lastName%></td>
                                 <td><%=contact.email%></td>
                                 <td><%=contact.number%></td>
+                                <td>
+                                    <a href="/contact/<%=contact._id%>">Editar</a>
+                                </td>
+                                <td>
+                                    <a class="text-danger" href="/contact/delete/<%= contact._id %>">Excluir</a>
+                                </td>
                             </tr>
                             <% } %>
 

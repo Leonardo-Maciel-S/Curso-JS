@@ -20,8 +20,11 @@ class Contact {
         this.listContact = []
     }
 
-    async getAllContact() {
-        this.listContact = await contactModel.find()
+    // Statics functions
+
+    static async getAllContact() {
+        const contacts = await contactModel.find().sort({ createIn: -1})
+        return contacts
     }
 
     static async getId(id) {
@@ -31,6 +34,13 @@ class Contact {
         return user
     }
 
+    static async deleteById(id) {
+        const response = await contactModel.deleteOne({ _id: id})
+        return response
+    }
+
+    // Async functions
+
     async edit(id) {
         if(typeof id !== 'string') return
 
@@ -39,12 +49,7 @@ class Contact {
 
         if(this.errors.length > 0) return
 
-        console.log('aqui 2')
-        console.log(id)
-
         this.contact = await contactModel.findOneAndUpdate( { _id: id }, this.body, { new: true })
-
-        console.log(this.contact)
     }                            
 
     async register() {
